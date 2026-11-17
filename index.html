@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>De tu inspiración a un proyecto · Barniture</title>
+<link rel="stylesheet" href="./static/styles.css">
+<script src="./static/app.js" defer></script>
+</head>
+<body>
+<div class="notice">Propuesta independiente de Javier · No es el sitio oficial</div>
+<header>
+  <a class="brand" href="./">BARNITURE <span>/ explorador visual</span></a>
+  <a href="https://barnituremuebles.com/proyectos/"
+     target="_blank" rel="noopener noreferrer">Ver sitio original ↗</a>
+</header>
+
+<main>
+<section class="intro">
+  <p class="eyebrow">TU IDEA ES EL PUNTO DE PARTIDA</p>
+  <h1>Encuentra proyectos que se parezcan a lo que imaginas.</h1>
+  <p>Sube una foto de inspiración y explora los proyectos de Barniture,
+     empezando por los más parecidos.</p>
+</section>
+
+<section class="workspace" aria-label="Buscar por imagen">
+  <div class="panel">
+    <p class="eyebrow">01 / TU REFERENCIA</p>
+    <h2>Muéstranos tu idea</h2>
+    <label class="upload" for="foto">
+      <strong>Seleccionar una foto</strong>
+      <span>JPG, PNG o WEBP · hasta 8 MB</span>
+    </label>
+    <input id="foto" type="file" accept="image/jpeg,image/png,image/webp">
+    <p class="hint">Tu foto se procesa en tu dispositivo y no se envía a un servidor. La primera búsqueda descarga el modelo; puede tardar según tu conexión.</p>
+    <p id="estado" role="status" aria-live="polite">Elige una imagen para empezar.</p>
+  </div>
+
+  <div class="panel">
+    <p class="eyebrow">02 / ENFOCA EL MUEBLE</p>
+    <div class="canvas-wrap">
+      <canvas id="lienzo" width="700" height="700"
+        tabindex="0" aria-label="Recorte de la imagen. Arrastra o usa las flechas para moverla.">
+      </canvas>
+      <span id="vacio">Tu inspiración aparece aquí</span>
+    </div>
+    <label for="zoom">Acercar imagen</label>
+    <input id="zoom" type="range" min="1" max="4" step=".01" value="1" disabled>
+    <p class="hint">Arrastra la foto o usa las flechas sobre la imagen.
+      Busca con el encuadre que ves.</p>
+    <div class="actions">
+      <button id="reset" class="secondary" disabled>Restablecer</button>
+      <button id="buscar" disabled>Buscar proyectos similares ↗</button>
+    </div>
+  </div>
+</section>
+
+<section id="resultados" hidden>
+  <div class="results-heading">
+    <div>
+      <p class="eyebrow">03 / EXPLORA LAS POSIBILIDADES</p>
+      <h2>De mayor a menor parecido</h2>
+    </div>
+    <span id="conteo"></span>
+  </div>
+  <p class="hint">El orden refleja similitud visual, no una coincidencia exacta.
+     Los últimos proyectos pueden tener poco en común con tu referencia.</p>
+  <div id="galeria" class="grid"></div>
+</section>
+
+<dialog id="detalle">
+  <button id="cerrar" class="secondary">Cerrar ✕</button>
+  <img id="imagen-grande" alt="">
+  <p id="nombre-grande"></p>
+</dialog>
+</main>
+<footer>
+  Prototipo de búsqueda visual por Javier · Fotografías del portafolio de Barniture.
+  <br>Los resultados son referencias de proyectos; no indican disponibilidad ni precio.
+</footer>
+</body>
+</html>
